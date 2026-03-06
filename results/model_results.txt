@@ -1,0 +1,145 @@
+Voting Ensemble Classification Report
+========================================
+
+Experiment Setup
+----------------------------------------
+dataset_path: data\raw\dataset.csv
+target_column: target
+original_rows: 550
+rows_removed_zscore: 19
+rows_removed_iqr: 35
+zscore_threshold: 3.0
+iqr_multiplier: 1.5
+test_size: 0.2
+random_state: 42
+stratified_split: True
+
+Model Metrics
+----------------------------------------
+dataset_variant           model accuracy precision recall f1_score  rows_used  rows_removed
+       Original             KNN   0.9818    0.9825 0.9818   0.9818        550             0
+       Original Voting Ensemble   0.9545    0.9559 0.9545   0.9545        550             0
+       Original   Decision Tree   0.9273    0.9295 0.9273   0.9272        550             0
+Z-score Cleaned   Decision Tree   0.9720    0.9734 0.9720   0.9719        531            19
+Z-score Cleaned             KNN   0.9720    0.9721 0.9720   0.9720        531            19
+Z-score Cleaned Voting Ensemble   0.9720    0.9734 0.9720   0.9719        531            19
+    IQR Cleaned             KNN   0.9515    0.9530 0.9515   0.9514        515            35
+    IQR Cleaned Voting Ensemble   0.9417    0.9424 0.9417   0.9417        515            35
+    IQR Cleaned   Decision Tree   0.9126    0.9166 0.9126   0.9125        515            35
+
+Outlier Removal Impact (Accuracy Delta vs Original)
+----------------------------------------
+dataset_variant           model accuracy baseline_accuracy delta_vs_original
+Z-score Cleaned   Decision Tree   0.9720            0.9273            0.0447
+Z-score Cleaned             KNN   0.9720            0.9818           -0.0099
+Z-score Cleaned Voting Ensemble   0.9720            0.9545            0.0174
+    IQR Cleaned             KNN   0.9515            0.9818           -0.0304
+    IQR Cleaned Voting Ensemble   0.9417            0.9545           -0.0128
+    IQR Cleaned   Decision Tree   0.9126            0.9273           -0.0147
+
+Detailed Classification Reports
+----------------------------------------
+
+[Original]
+
+Decision Tree
+              precision    recall  f1-score   support
+
+           0       0.90      0.96      0.93        55
+           1       0.96      0.89      0.92        55
+
+    accuracy                           0.93       110
+   macro avg       0.93      0.93      0.93       110
+weighted avg       0.93      0.93      0.93       110
+
+
+KNN
+              precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98        55
+           1       1.00      0.96      0.98        55
+
+    accuracy                           0.98       110
+   macro avg       0.98      0.98      0.98       110
+weighted avg       0.98      0.98      0.98       110
+
+
+Voting Ensemble
+              precision    recall  f1-score   support
+
+           0       0.93      0.98      0.96        55
+           1       0.98      0.93      0.95        55
+
+    accuracy                           0.95       110
+   macro avg       0.96      0.95      0.95       110
+weighted avg       0.96      0.95      0.95       110
+
+
+[Z-score Cleaned]
+
+Decision Tree
+              precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97        54
+           1       1.00      0.94      0.97        53
+
+    accuracy                           0.97       107
+   macro avg       0.97      0.97      0.97       107
+weighted avg       0.97      0.97      0.97       107
+
+
+KNN
+              precision    recall  f1-score   support
+
+           0       0.96      0.98      0.97        54
+           1       0.98      0.96      0.97        53
+
+    accuracy                           0.97       107
+   macro avg       0.97      0.97      0.97       107
+weighted avg       0.97      0.97      0.97       107
+
+
+Voting Ensemble
+              precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97        54
+           1       1.00      0.94      0.97        53
+
+    accuracy                           0.97       107
+   macro avg       0.97      0.97      0.97       107
+weighted avg       0.97      0.97      0.97       107
+
+
+[IQR Cleaned]
+
+Decision Tree
+              precision    recall  f1-score   support
+
+           0       0.88      0.96      0.92        51
+           1       0.96      0.87      0.91        52
+
+    accuracy                           0.91       103
+   macro avg       0.92      0.91      0.91       103
+weighted avg       0.92      0.91      0.91       103
+
+
+KNN
+              precision    recall  f1-score   support
+
+           0       0.98      0.92      0.95        51
+           1       0.93      0.98      0.95        52
+
+    accuracy                           0.95       103
+   macro avg       0.95      0.95      0.95       103
+weighted avg       0.95      0.95      0.95       103
+
+
+Voting Ensemble
+              precision    recall  f1-score   support
+
+           0       0.92      0.96      0.94        51
+           1       0.96      0.92      0.94        52
+
+    accuracy                           0.94       103
+   macro avg       0.94      0.94      0.94       103
+weighted avg       0.94      0.94      0.94       103
