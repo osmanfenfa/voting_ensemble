@@ -59,7 +59,7 @@ def plot_accuracy_comparison(results_df: pd.DataFrame, output_path: str | Path) 
 
     models = list(pivot_df.columns)
     x = np.arange(len(pivot_df.index))
-    width = 0.24
+    width = 0.30
 
     fig, ax = plt.subplots(figsize=(10, 6))
     for idx, model_name in enumerate(models):

@@ -41,8 +41,8 @@ def split_features_target(
 def train_test_split_data(
     X: pd.DataFrame,
     y: pd.Series,
-    test_size: float = 0.2,
-    random_state: int = 42,
+    test_size: float = 0.8,
+    random_state: int = 45,
     stratify: bool = True,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series]:
     stratify_target = y if stratify and y.nunique() > 1 else None

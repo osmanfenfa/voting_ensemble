@@ -39,7 +39,7 @@ def build_preprocessor(X: pd.DataFrame) -> ColumnTransformer:
     return ColumnTransformer(transformers=transformers, remainder="drop")
 
 def build_model_pipelines(
-    X: pd.DataFrame, random_state: int = 42
+    X: pd.DataFrame, random_state: int = 60
 ) -> dict[str, Pipeline]:
     preprocessor = build_preprocessor(X)
 
@@ -51,8 +51,8 @@ def build_model_pipelines(
                 DecisionTreeClassifier(
                     random_state=random_state,
                     max_depth=8,
-                    min_samples_split=4,
-                    min_samples_leaf=2,
+                    min_samples_split=6,
+                    min_samples_leaf=4,
                 ),
             ),
         ]
